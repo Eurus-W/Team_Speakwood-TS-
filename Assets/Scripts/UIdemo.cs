@@ -3,18 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIdemo : MonoBehaviour
-{
-    struct Player
-    {
-        public int Money;
 
-        public Player(int money)
-        {
-            Money = money;
-        }
+
+
+
+
+public class Player
+{
+    public int Money ;
+    private GameObject model;
+    private double Strength,Agility,Intelligence,Luck,Toughness;//力、敏、智、幸运、体质
+    private int wood;//武德
+    private int item1_id, item2_id, item3_id, item4_id, item5_id, item6_id;
+
+    public Player(int money)
+    {
+        Money = money;
     }
 
+    public GameObject Model { get => model; set => model = value; }
+
+    //属性变更
+    public void moneychange(int change)
+    {
+        Money += change;
+    }
+
+}
+public class Item
+{
+    int item_id;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class UIdemo : MonoBehaviour
+{
+    
     const int StartMoney = 20000;
     private int GameTurn;
 

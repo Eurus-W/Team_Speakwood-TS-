@@ -76,8 +76,9 @@ public class Dice : MonoBehaviour {
 				if (mat!="") inst.GetComponent<Renderer>().material = material(mat);
 				inst.transform.position = position;
 				inst.transform.Rotate(rotation);
-				inst.transform.localScale = scale;
+				inst.transform.localScale = scale/3;
 				// return the created instance (GameObject)
+				inst.gameObject.layer = 5;
 				return inst;
 			}
 		}
