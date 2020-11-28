@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         {
 
-            m_Transform.Translate(Vector3.forward * 0.1f, Space.Self);
+            m_Transform.Translate(Vector3.forward * 0.3f, Space.Self);
 
         }
 
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         {
 
-            m_Transform.Translate(Vector3.back * 0.1f, Space.Self);
+            m_Transform.Translate(Vector3.back * 0.3f, Space.Self);
 
         }
 
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         {
 
-            m_Transform.Translate(Vector3.left * 0.1f, Space.Self);
+            m_Transform.Translate(Vector3.left * 0.3f, Space.Self);
 
         }
 
@@ -76,7 +76,23 @@ public class PlayerController : MonoBehaviour
 
         {
 
-            m_Transform.Translate(Vector3.right * 0.1f, Space.Self);
+            m_Transform.Translate(Vector3.right * 0.3f, Space.Self);
+
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+
+        {
+
+            m_Transform.Translate(Vector3.down * 0.3f, Space.World);
+
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+
+        {
+
+            m_Transform.Translate(Vector3.up*0.3f, Space.World);
 
         }
 
@@ -107,9 +123,8 @@ public class PlayerController : MonoBehaviour
         if (mouseLock)
         {
             m_Transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"));
+            m_Transform.Rotate(Vector3.left, Input.GetAxis("Mouse Y"));
         }
-
-        //m_Transform.Rotate(Vector3.left, Input.GetAxis("Mouse Y"));
 
     }
 

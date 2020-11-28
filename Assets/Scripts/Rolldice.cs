@@ -20,7 +20,7 @@ public class Rolldice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sum = -1;
+        sum = 0;
         time = 0;
         center = Bottom.transform.position;
         center = center + temp;
@@ -36,13 +36,13 @@ public class Rolldice : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        bool label = true;
+        bool label = GameObject.Find("Player").GetComponent<UIdemo>().NeedDice;
         if (Input.GetMouseButtonDown(Dice.MOUSE_LEFT_BUTTON)&&label)
         {
             Dice.Clear();
             Dice.Roll("1d6", "d6-white-dots", center, -Force() * (Random.value * 2 - 1));
             Dice.Roll("1d6", "d6-black-dots", center, -Force() * (Random.value * 2 - 1));
-            time += Time.deltaTime; ;
+            time += Time.deltaTime;
         }
         if (time > 0) {
             time += Time.deltaTime;
@@ -56,7 +56,6 @@ public class Rolldice : MonoBehaviour
         }
 
     }
-
 
     void OnGUI()
     {
