@@ -157,21 +157,4 @@ public class Item
 
 }
 
-public class Hero
-{
-    private GameObject model;
-    //五项属性值
-    private double Strength, Agility, Intelligence, Luck, Toughness;//力、敏、智、幸运、体质
-    //武德
-    private int Wood;
 
-    int heroid;
-
-    public Hero()
-    {
-    }
-
-
-
-
-}
