@@ -50,7 +50,9 @@ public class ReadData : MonoBehaviour
 
             LoadedData = JsonUtility.FromJson<Heroes>(dataAsJson);
             Debug.Log("Data loaded, dictionary contains: " + LoadedData.heroes.Length + " entries");
-            Debug.Log(loadedData.heroes[1].Wood);
+            ///Debug.Log(loadedData.heroes[1].Info);
+            Debug.Log(loadedData.heroes[0].Heroid);
+            Debug.Log(LoadedData.heroes[0].Info);
         }
         else
         {

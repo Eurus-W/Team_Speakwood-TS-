@@ -34,10 +34,10 @@ public class UIdemo : MonoBehaviour
         GameTurn = 1;
         NeedDice = true;
         DiceValue = 0;
-        player1 = new Player(-1, ref model1);
-        player2 = new Player(-1, ref model2);
-        player3 = new Player(-1, ref model3);
-        player4 = new Player(-1, ref model4);
+        player1 = new Player(101, ref model1);
+        player2 = new Player(102, ref model2);
+        player3 = new Player(103, ref model3);
+        player4 = new Player(104, ref model4);
         Application.targetFrameRate = 120;
         PlayerName.GetComponent<Text>().text = "Player1";
         MoneyRank1.GetComponent<Text>().text = StartMoney.ToString();

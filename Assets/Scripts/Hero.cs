@@ -18,15 +18,17 @@ public class Heroes
 [System.Serializable]
 public class Hero
 {
-    private GameObject model;
+    //private GameObject model;
+    public int heroid;
+    public string name;
     //五项属性值
-    private double strength, agility, intelligence, luck, toughness;//力、敏、智、幸运、体质
+    public double strength, agility, intelligence, toughness, luck;//力、敏、智、幸运、体质
     //武德
-    private int wood;
+    public int wood;
+    public string info;
+    public string skillName;
+    public string skillIntro;
 
-    int heroid;
-
-    string info, name;
 
 
 
@@ -39,6 +41,8 @@ public class Hero
     public int Heroid { get => heroid; set => heroid = value; }
     public string Info { get => info; set => info = value; }
     public string Name { get => name; set => name = value; }
+    public string SkillName { get => skillName; set => skillName = value; }
+    public string SkillIntro { get => skillIntro; set => skillIntro = value; }
 }
 
 

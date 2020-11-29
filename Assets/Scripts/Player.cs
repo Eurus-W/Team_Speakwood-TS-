@@ -60,22 +60,40 @@ public class Player
             model = obj;
 
         }
-        //else {
-        //    for (int i = 0; i < 8; i++)
-        //    {
-        //        if(heroid == data[i][0])
-        //        {
-        //            money = data[i][1];
-        //            strength = data[i][2];
-        //            agility = data[i][3];
-        //            intelligence = data[i][4];
-        //            luck = data[i][5];
-        //            toughness = data[i][6];
-        //            wood = data[i][7];
-        //        }
-        //    } 
+        else
+        {
+            for (int i = 0; i < GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData.heroes.Length; i++)
+            {
+                Heroes data = GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData;
+                if (heroid == data.heroes[i].Heroid)
+                {
+                    //money = data.heroes[i];
+                    money = 30000;
+                    strength = data.heroes[i].Strength;
+                    agility = data.heroes[i].Agility;
+                    intelligence = data.heroes[i].Intelligence;
+                    luck = data.heroes[i].Luck;
+                    toughness = data.heroes[i].Toughness;
+                    wood = data.heroes[i].Wood;
+                    intro = data.heroes[i].Info;
+                    Debug.Log(intro);
+                    skillIntro = data.heroes[i].SkillIntro;
+                    skillName = data.heroes[i].SkillName;
+                }
+            }
+            //没有任何装备
+            item1_id = -1;
+            item2_id = -1;
+            item3_id = -1;
+            item4_id = -1;
+            item5_id = -1;
+            item6_id = -1;
+            //出生在在起始位置
+            Position = 0;
 
-        //}
+            model = obj;
+
+        }
 
 
     }
