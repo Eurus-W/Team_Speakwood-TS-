@@ -1,0 +1,96 @@
+{
+    
+  "heroes":[
+    {
+        "heroid": "101",
+        "name": "球",
+        "strength": "55",
+        "agility": "55",
+        "intelligence": "55",
+        "toughness": "55",
+        "luck": "55",
+        "wood": "5",
+        "info": "一个平平无奇的球，但也没有弱点",
+        "skillName": "【圆形】",
+        "skillIntro": "获得任何属性提升时，将提升的值平均分到五个属性上（向上取整）"
+    },
+    {
+        "heroid": "102",
+        "name": "福特曼",
+        "strength": "30",
+        "agility": "82",
+        "intelligence": "33",
+        "toughness": "45",
+        "luck": "50",
+        "wood": "4",
+        "info": "跑的不如香港记者快",
+        "skillName": "【左右横跳】",
+        "skillIntro": "行动时额外投一个1d100的敏捷判定，若出目小于敏捷值，则可以选择行动总步数+1，-1或不变，选择不变时额外获得200金钱"
+    },
+    {
+        "heroid": "103",
+        "name": "杰克霍斯",
+        "strength": "27",
+        "agility": "40",
+        "intelligence": "73",
+        "toughness": "50",
+        "luck": "50",
+        "wood": "3",
+        "info": "资本家都应该被吊路灯",
+        "skillName": "【商业并购】",
+        "skillIntro": "决斗时使用力量智力的均值进行判定，地块过路费*1.5"
+    },
+    {
+        "heroid": "104",
+        "name": "巨魔",
+        "strength": "89",
+        "agility": "22",
+        "intelligence": "45",
+        "toughness": "60",
+        "luck": "50",
+        "wood": "5",
+        "info": "巨魔没有立场，他们只想找乐子",
+        "skillName": "【你被巨魔了】",
+        "skillIntro": "决斗成功不会获得该地块，而会使地块恢复到无主状态"
+    },
+    {
+        "heroid": "105",
+        "name": "傻子",
+        "strength": "43",
+        "agility": "36",
+        "intelligence": "20",
+        "toughness": "75",
+        "luck": "75",
+        "wood": "4",
+        "info": "傻人有傻福",
+        "skillName": "【傻人有傻福】",
+        "skillIntro": "决斗外所有事件都使用幸运判定"
+    },
+    {
+        "heroid": "106",
+        "name": "米诺陶",
+        "strength": "75",
+        "agility": "34",
+        "intelligence": "53",
+        "toughness": "55",
+        "luck": "50",
+        "wood": "3",
+        "info": "真正的牛头人靠的是脑子",
+        "skillName": "【不动的大迷宫】",
+        "skillIntro": "被决斗时用智力替换敏捷进行计算"
+    },
+    {
+        "heroid": "100",
+        "name": "程序猿",
+        "strength": "1",
+        "agility": "1",
+        "intelligence": "1",
+        "toughness": "1",
+        "luck": "1",
+        "wood": "1",
+        "info": "卡密哒！！",
+        "skillName": "【创造者】",
+        "skillIntro": "无法决斗、被收过路费与被决斗，不受负面事件影响，中立事件取消负面效果，不会入院"
+    }
+]
+}
