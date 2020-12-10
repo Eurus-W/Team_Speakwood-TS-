@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIdemo : MonoBehaviour
 {
     
-    public int StartMoney = 20000;
+    const int StartMoney = 20000;
     public int GameTurn;
     private int DiceValue;
     private bool needDice;
@@ -109,8 +109,8 @@ public class UIdemo : MonoBehaviour
         if (!NeedDice) return;
         if (GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum == 0) return;
         DiceValue = GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum;
-        Debug.Log(GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum);
         GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum = 0;
+        DiceNum.GetComponent<Text>().text = DiceValue.ToString();
         string dialog = "";
         switch (GameTurn)
         {

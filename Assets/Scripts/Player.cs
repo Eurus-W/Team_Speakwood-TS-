@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Player
 {
-    //heros id
-    private int key;
-    
     //持有金钱数
     private int money;
     //绑定场景中的物体
@@ -42,7 +39,7 @@ public class Player
         //根据不同的英雄id对玩家进行初始化
 
         if (heroid == -1)//当前测试阶段的的default初始化
-        { 
+        {
             money = 20000;
             Strength = 30;
             agility = 30;
@@ -65,15 +62,13 @@ public class Player
         }
         else
         {
-            Heroes data = GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData;
             for (int i = 0; i < GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData.heroes.Length; i++)
             {
+                Heroes data = GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData;
                 if (heroid == data.heroes[i].Heroid)
                 {
-                    key = i;
-                    
                     //money = data.heroes[i];
-                    money = GameObject.Find("Player").GetComponent<UIdemo>().StartMoney;
+                    money = 30000;
                     strength = data.heroes[i].Strength;
                     agility = data.heroes[i].Agility;
                     intelligence = data.heroes[i].Intelligence;
@@ -118,7 +113,6 @@ public class Player
     public bool IsMoving { get => isMoving; set => isMoving = value; }
     public bool HaveMoved { get => haveMoved; set => haveMoved = value; }
     public int Position { get => position; set => position = value; }
-    public int Key { get => key; set => key = value; }
 
     //构造函数
 

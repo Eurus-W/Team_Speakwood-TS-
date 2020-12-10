@@ -9,12 +9,11 @@ public class PlayerController : MonoBehaviour
 
     private Transform m_Transform;
 
-    private bool mouseLock;
+    private bool mouseLock = true;
 
     void Start()
     {
 
-        mouseLock = false;
         m_Transform = gameObject.GetComponent<Transform>();
 
     }
