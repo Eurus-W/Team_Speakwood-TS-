@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Dice/scenes/Demo/demo.unity
-    guid: 00000000000000000000000000000000
+    guid: 9bffaf85fa8153c4ba4e72b19277f390
+  - enabled: 1
+    path: Assets/Scenes/UIscene.unity
+    guid: c1f4015b6dabbea43a087a87781d0419
+  - enabled: 0
+    path: Assets/Scenes/StartScene.unity
+    guid: a92bc5e9962fab642b42d6337f142a18
   m_configObjects: {}
