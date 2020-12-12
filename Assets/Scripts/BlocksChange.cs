@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlocksChange : MonoBehaviour
 {
     // Start is called before the first frame update
-    Block[] all_blocks;
+    //初始化36个地块
+    public Block[] all_blocks;
     void Start()
     {
         
-        GameObject obj= GameObject.Find("Cube");
+        GameObject obj= GameObject.Find("GameUI/ShowBlock");
         all_blocks = new Block[36];
         Block b;
         for (int i =0;i<=35;i++)
@@ -47,9 +49,27 @@ public class BlocksChange : MonoBehaviour
 
         
     }
+    public void ShowBlock(int pos, bool isshow)
+    {
+        Text blockname, ownername, price, housenumber, blockrent;
+        BlocksChange bc = (BlocksChange)GetComponent(typeof(BlocksChange));
+        blockname = GameObject.Find("GameUI/ShowBlock/BlockName").GetComponent<Text>();
+        ownername = GameObject.Find("GameUI/ShowBlock/OwnerName").GetComponent<Text>();
+        price = GameObject.Find("GameUI/ShowBlock/Price").GetComponent<Text>();
+        housenumber = GameObject.Find("GameUI/ShowBlock/HouseNumber").GetComponent<Text>();
+        blockrent = GameObject.Find("GameUI/ShowBlock/Rent").GetComponent<Text>();
+
+        blockname.text = "地块" + pos.ToString();
+        ownername.text = all_blocks[pos].ownername.ToString();
+        price.text = all_blocks[pos].price.ToString();
+        housenumber.text = all_blocks[pos].house.ToString();
+        blockrent.text = all_blocks[pos].rent.ToString();
+
+    }
     // Update is called once per frame
     void Update()
     {
+        //监听地块租金
         DoubleGroundRent(all_blocks, 1, 2, 3);
         DoubleGroundRent(all_blocks, 5, 7, 8);
         DoubleGroundRent(all_blocks, 10, 11, 13);
@@ -77,6 +97,7 @@ public class BlocksChange : MonoBehaviour
             if (all_blocks[22].owner == kvp.Key) { all_blocks[22].rent = 240 + (kvp.Value - 1) * 500; }
             if (all_blocks[30].owner == kvp.Key) { all_blocks[30].rent = 240 + (kvp.Value - 1) * 500; }
         }
+        ShowBlock(1, true);
         
     }
 }

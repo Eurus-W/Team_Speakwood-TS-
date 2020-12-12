@@ -6,8 +6,9 @@ public class Block
 
     public int price;
     public string type;
-    public int owner ;
-    public int house ;
+    public int owner = 0 ;
+    public string ownername = "无";
+    public int house = 0;
     public int color;
     public int rent;
     public Block(int i ,GameObject obj)
