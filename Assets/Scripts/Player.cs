@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+[System.Serializable]
+public class Players
+{
+    public Player[] playerlist = new Player[5];
+}
+
+
+
+[System.Serializable]
 public class Player
 {
-    //heros id
     private int key;
-    
     //持有金钱数
     private int money;
     //绑定场景中的物体
@@ -35,6 +44,11 @@ public class Player
 
     private bool haveMoved = false;
 
+    private bool needOutHos = false;
+
+    private string name;
+    private bool isInhos;
+
     public Player(int heroid, ref GameObject obj)
     {
 
@@ -42,7 +56,8 @@ public class Player
         //根据不同的英雄id对玩家进行初始化
 
         if (heroid == -1)//当前测试阶段的的default初始化
-        { 
+        {
+
             money = 20000;
             Strength = 30;
             agility = 30;
@@ -59,8 +74,10 @@ public class Player
             item6_id = -1;
             //出生在在起始位置
             Position = 0;
+            Name = "cube";
 
             model = obj;
+            isInhos = false;
 
         }
         else
@@ -68,12 +85,12 @@ public class Player
             Heroes data = GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData;
             for (int i = 0; i < GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData.heroes.Length; i++)
             {
+                
                 if (heroid == data.heroes[i].Heroid)
                 {
-                    key = i;
-                    
+                    Key = i;
                     //money = data.heroes[i];
-                    money = GameObject.Find("Player").GetComponent<UIdemo>().StartMoney;
+                    money = 20000;
                     strength = data.heroes[i].Strength;
                     agility = data.heroes[i].Agility;
                     intelligence = data.heroes[i].Intelligence;
@@ -81,9 +98,11 @@ public class Player
                     toughness = data.heroes[i].Toughness;
                     wood = data.heroes[i].Wood;
                     intro = data.heroes[i].Info;
-                    Debug.Log(intro);
+                    
                     skillIntro = data.heroes[i].SkillIntro;
                     skillName = data.heroes[i].SkillName;
+                    Name = data.heroes[i].Name;
+                    isInhos = false;
                 }
             }
             //没有任何装备
@@ -118,7 +137,10 @@ public class Player
     public bool IsMoving { get => isMoving; set => isMoving = value; }
     public bool HaveMoved { get => haveMoved; set => haveMoved = value; }
     public int Position { get => position; set => position = value; }
+    public string Name { get => name; set => name = value; }
+    public bool IsInhos { get => isInhos; set => isInhos = value; }
     public int Key { get => key; set => key = value; }
+    public bool NeedOutHos { get => needOutHos; set => needOutHos = value; }
 
     //构造函数
 
@@ -168,16 +190,6 @@ public class Player
     }
 
     //玩家模型的动作
-
-}
-
-public class Item
-{
-    int item_id;
-    //物品图片路径+名字等于其导入路径，存放在统一路径下
-    string item_name;
-    //物品简介
-    string item_intro_text;
 
 }
 

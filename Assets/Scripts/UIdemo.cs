@@ -6,24 +6,29 @@ using UnityEngine.UI;
 public class UIdemo : MonoBehaviour
 {
     
-    public int StartMoney = 20000;
+    const int StartMoney = 20000;
     public int GameTurn;
     private int DiceValue;
     private bool needDice;
     public float playerFeet;
 
+    /// <summary>
+    /// 考虑改成形如public GameObject model1 = new GameObject;
+    /// </summary>
 
     public GameObject model1, model2, model3, model4;
 
 
-    public Player player1, player2, player3, player4;
+    public Player player0,player1, player2, player3, player4;
+    public Players players;
 
     public GameObject PlayerName;
     public GameObject MoneyRank1, MoneyRank2, MoneyRank3, MoneyRank4;
-    public GameObject DiceNum;
+    
     public GameObject Capsule;
+    private int outPlayers;
 
-    public float rotateSpeed = 30f;
+    
 
     public bool NeedDice { get => needDice; set => needDice = value; }
 
@@ -35,39 +40,76 @@ public class UIdemo : MonoBehaviour
         NeedDice = true;
         DiceValue = 0;
         player1 = new Player(101, ref model1);
-        player2 = new Player(102, ref model2);
-        player3 = new Player(103, ref model3);
-        player4 = new Player(104, ref model4);
+        player2 = new Player(103, ref model2);
+        player3 = new Player(104, ref model3);
+        player4 = new Player(106, ref model4);
+
+        player0 = new Player(105, ref model1);
+        players = new Players();
+        
+
+        players.playerlist[0] = player0;
+        players.playerlist[1] = player1;
+        players.playerlist[2] = player2;
+        players.playerlist[3] = player3;
+        players.playerlist[4] = player4;
+
         Application.targetFrameRate = 120;
         PlayerName.GetComponent<Text>().text = "Player1";
+        //players.playerlist[1].Money = 0;
         MoneyRank1.GetComponent<Text>().text = StartMoney.ToString();
         MoneyRank2.GetComponent<Text>().text = StartMoney.ToString();
         MoneyRank3.GetComponent<Text>().text = StartMoney.ToString();
         MoneyRank4.GetComponent<Text>().text = StartMoney.ToString();
+        player1.Model.GetComponent<Animator>().SetBool("IsHappy", true);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Capsule.transform.Rotate(new Vector3(Time.deltaTime * rotateSpeed, Time.deltaTime * rotateSpeed, Time.deltaTime * rotateSpeed));
+        
+        keepball();//或者放在fixupdate中，定时执行，增加执行间隔。
+ 
         DiceButtonOnClicked();
         TurnOver();
-        GameOver();
+        //GameOver();
+    }
+
+    public void keepball()
+    {
+        for (int i = 1; i < 5; i++)
+        {
+            if (players.playerlist[i].Name == "贝恩")
+            {
+                int average = (int)((players.playerlist[i].Strength + players.playerlist[i].Agility + players.playerlist[i].Intelligence + players.playerlist[i].Toughness + players.playerlist[i].Luck) / 5);
+                players.playerlist[i].Strength = average;
+                players.playerlist[i].Agility = average;
+                players.playerlist[i].Intelligence = average;
+                players.playerlist[i].Toughness = average;
+                players.playerlist[i].Luck = average;
+            }
+        }
     }
 
     public void GameOver()
     {
-
+        Debug.Log("游戏结束！！！！！！！！");
     }
 
     public void TurnOver()
     {
+
         if (GameObject.Find("TimeCount").GetComponent<CountDown>().TotalTime == 0)
         {
+            
+
             if (NeedDice)
             {
+                
                 DiceButtonOnClicked();
                 NeedDice = false;
+
             }
             else
             {
@@ -78,8 +120,22 @@ public class UIdemo : MonoBehaviour
 
     public void EndButtonOnClick()
     {
+        if (GameObject.Find("Player" + GameTurn).GetComponent<PlayerMove>().isMoving)
+        {
+            return;
+        }
+        if (players.playerlist[GameTurn].IsInhos)
+        {
+            players.playerlist[GameTurn].NeedOutHos = true;
+        }
+
         if (NeedDice) return;
+        players.playerlist[GameTurn].Model.GetComponent<Animator>().SetBool("IsHappy", false);
         GameTurn++;
+        if (GameTurn == 5)
+        {
+            GameTurn = 1;
+        }
         switch (GameTurn)
         {
             case 1:
@@ -97,51 +153,89 @@ public class UIdemo : MonoBehaviour
             default: break;
         }
         GameObject.Find("TimeCount").GetComponent<CountDown>().ResetTime();
-        if (GameTurn == 5)
-        {
-            GameTurn = 1;
-        }
+
+       
+        players.playerlist[GameTurn].Model.GetComponent<Animator>().SetBool("IsHappy", true);
+        //if(players)
         NeedDice = true;
+        //GameObject.Find("Blocks").GetComponent<BlocksChange>().canUpdate = true;
+
     }
 
     public void DiceButtonOnClicked()
     {
+        if (players.playerlist[GameTurn].Money <= 0)
+        {
+           
+            outPlayers = 0;
+            foreach (var player in players.playerlist)
+            {
+                if (player.Money<=0)
+                {
+                    outPlayers++;
+                }
+            }
+
+            if (outPlayers>=3)
+            {
+                GameOver();
+            }
+
+
+
+            
+            needDice = false;
+            EndButtonOnClick();
+            return;
+        }
+        if (players.playerlist[GameTurn].IsInhos&& players.playerlist[GameTurn].NeedOutHos)
+        {
+
+            
+            
+            return;
+        }
+
+        if (players.playerlist[GameTurn].IsInhos)
+        {
+
+            needDice = false;
+            EndButtonOnClick();
+            return;
+        }
+
+
         if (!NeedDice) return;
         if (GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum == 0) return;
         DiceValue = GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum;
-        Debug.Log(GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum);
         GameObject.Find("DiceCube").GetComponent<Rolldice>().DiceSum = 0;
+     
         string dialog = "";
         switch (GameTurn)
         {
             case 1:
-                player1.Money -= DiceValue * 1000;
-                //odel1.
+                
                 player1.Model.GetComponent<PlayerMove>().MoveByDice(player1.Position, DiceValue);
                 player1.MovePlayer(DiceValue);
-                dialog = "玩家<color=blue>player1</color> <color=red>损失</color> <color=yellow>" + (DiceValue * 1000).ToString() + "</color>\n";
-                MoneyRank1.GetComponent<Text>().text = player1.Money.ToString();
+                
                 break;
             case 2:
-                player2.Money -= DiceValue * 1000;
+                
                 player2.Model.GetComponent<PlayerMove>().MoveByDice(player2.Position, DiceValue);
                 player2.MovePlayer(DiceValue);
-                dialog = "玩家<color=blue>player2</color> <color=red>损失</color> <color=yellow>" + (DiceValue * 1000).ToString() + "</color>\n";
-                MoneyRank2.GetComponent<Text>().text = player2.Money.ToString();
+                
                 break;
             case 3:
-                player3.Money -= DiceValue * 1000;
+                
                 player3.Model.GetComponent<PlayerMove>().MoveByDice(player3.Position, DiceValue);
                 player3.MovePlayer(DiceValue);
-                dialog = "玩家<color=blue>player3</color> <color=red>损失</color> <color=yellow>" + (DiceValue * 1000).ToString() + "</color>\n";
-                MoneyRank3.GetComponent<Text>().text = player3.Money.ToString();
+                
                 break;
             case 4:
-                player4.Money -= DiceValue * 1000;
+                
                 player4.Model.GetComponent<PlayerMove>().MoveByDice(player4.Position, DiceValue);
                 player4.MovePlayer(DiceValue);
-                dialog = "玩家<color=blue>player4</color> <color=red>损失</color> <color=yellow>" + (DiceValue * 1000).ToString() + "</color>\n";
-                MoneyRank4.GetComponent<Text>().text = player4.Money.ToString();
+                
                 break;
             default: break;
         }

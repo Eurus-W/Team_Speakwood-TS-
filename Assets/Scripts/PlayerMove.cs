@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public Vector3[] pathPoint;
     public int[] pathid;
-    private float Player_Y;
+    public float Player_Y;
     public float moveSpeed;
     public float stopTime;
     public bool isMoving;
@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         isMoving = false;
-        Player_Y = 1f;
+        Player_Y = 1.0f;
     }
 
     void Update()
@@ -25,7 +25,9 @@ public class PlayerMove : MonoBehaviour
         {
             getPathPoint();
             pathid = new int[0];
+            isMoving = true;
             StartCoroutine(MoveOnPath(false));
+           
         }
         //根据回合数选择player和model
 
@@ -93,12 +95,25 @@ public class PlayerMove : MonoBehaviour
         {
             foreach (var point in pathPoint)
             {
+                if(point == new Vector3(14.0f, Player_Y, 0.0f)|| point == new Vector3(112.0f, Player_Y, -14.0f) || point == new Vector3(98.0f, Player_Y, -112.0f) || point == new Vector3(0.0f, Player_Y, -98.0f))
+                {
+                    if (point != pathPoint[0])
+                    {
+                        transform.rotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0, 90, 0));
+                    }
+                }
+                
+                GetComponent<Animator>().SetBool("IsWalk", true);
                 yield return StartCoroutine(MoveToPosition(point));
                 yield return new WaitForSeconds(stopTime);
             }
         }
         while (loop);
+        GetComponent<Animator>().SetBool("IsWalk", false);
+        
         isMoving = false;
+        GameObject.Find("Blocks").GetComponent<BlocksChange>().canUpdate = true;
+        GameObject.Find("EventUI").GetComponent<BlockEvent>().NeedWindow = true;
     }
 
     IEnumerator MoveToPosition(Vector3 target)
@@ -109,14 +124,27 @@ public class PlayerMove : MonoBehaviour
             yield return 0;
         }
     }
+    IEnumerator TransferToPosition(Vector3 target)
+    {
+        while (transform.position != target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, 10*moveSpeed * Time.deltaTime);
+            yield return 0;
+        }
+    }
 
     public void MoveByDice(int from, int dice)
     {
         int[] idArray = new int[dice + 1];
         for (int id=0; id<=dice; id++)
         {
-            idArray[id] = from + id;
+            idArray[id] = (from + id)%36;
         }
         pathid = idArray;
+    }
+    public void Transfer(int target)
+    {
+        StartCoroutine(TransferToPosition(getPoint(target)));
+        GameObject.Find("Player").GetComponent<UIdemo>().players.playerlist[GameObject.Find("Player").GetComponent<UIdemo>().GameTurn].Position = target;
     }
 }

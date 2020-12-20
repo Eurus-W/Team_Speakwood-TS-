@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
         mouseLock = false;
         m_Transform = gameObject.GetComponent<Transform>();
 
@@ -37,13 +36,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Move()
-    {
-        if (Input.GetKey(KeyCode.K))
-        {
-            Debug.Log("aaa");
-        }
-    }
 
     void MoveControl()
 

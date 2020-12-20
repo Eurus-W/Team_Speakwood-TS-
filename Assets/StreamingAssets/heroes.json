@@ -3,7 +3,7 @@
   "heroes":[
     {
         "heroid": "101",
-        "name": "球",
+        "name": "贝恩",
         "strength": "55",
         "agility": "55",
         "intelligence": "55",
@@ -11,8 +11,8 @@
         "luck": "55",
         "wood": "5",
         "info": "一个平平无奇的球，但也没有弱点",
-        "skillName": "【圆形】",
-        "skillIntro": "获得任何属性提升时，将提升的值平均分到五个属性上（向上取整）"
+        "skillName": "【水桶腰】",
+        "skillIntro": "获得任何属性提升时，将提升的值平均分到五个属性上"
     },
     {
         "heroid": "102",
@@ -42,15 +42,15 @@
     },
     {
         "heroid": "104",
-        "name": "巨魔",
+        "name": "乐兹壬",
         "strength": "89",
         "agility": "22",
         "intelligence": "45",
         "toughness": "60",
         "luck": "50",
         "wood": "5",
-        "info": "巨魔没有立场，他们只想找乐子",
-        "skillName": "【你被巨魔了】",
+        "info": "乐子人没有立场，他们只想找乐子",
+        "skillName": "【网暴真可怕，还好___】",
         "skillIntro": "决斗成功不会获得该地块，而会使地块恢复到无主状态"
     },
     {
@@ -68,14 +68,14 @@
     },
     {
         "heroid": "106",
-        "name": "米诺陶",
+        "name": "阿哈利姆",
         "strength": "75",
         "agility": "34",
         "intelligence": "53",
         "toughness": "55",
         "luck": "50",
         "wood": "3",
-        "info": "真正的牛头人靠的是脑子",
+        "info": "他擅长用智慧构造复杂的建筑",
         "skillName": "【不动的大迷宫】",
         "skillIntro": "被决斗时用智力替换敏捷进行计算"
     },

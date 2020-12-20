@@ -6,11 +6,11 @@ public class Block
 
     public int price;
     public string type;
-    public int owner = 0 ;
-    public string ownername = "无";
-    public int house = 0;
+    public int owner=0 ;
+    public int house=0 ;
     public int color;
     public int rent;
+    public string ownername = "无";
     public Block(int i ,GameObject obj)
     {
         blockModel = obj;
@@ -36,7 +36,7 @@ public class Block
                 case 10: price = 1130; type = "blocks"; color = 3; rent = 226; owner = 0; break;
                 case 11: price = 1200; type = "blocks"; color = 3; rent = 240; owner = 0; break;
                 case 13: price = 1300; type = "blocks"; color = 3; rent = 260; owner = 0; break;
-                case 14: price = 2500; type = "special"; rent = 500; owner = 0; break;
+                case 14: price = 2500; type = "special"; rent = 1000; owner = 0; break;
                 case 15: price = 1410; type = "blocks"; color = 4; rent = 282; owner = 0; break;
                 case 16: price = 1500; type = "blocks"; color = 4; rent = 300; owner = 0; break;
                 case 17: price = 1600; type = "blocks"; color = 4; rent = 320; owner = 0; break;
@@ -48,11 +48,11 @@ public class Block
                 case 24: price = 0; type = "fate"; break;
                 case 25: price = 1960; type = "blocks"; color = 6; rent = 392; owner = 0; break;
                 case 26: price = 2000; type = "blocks"; color = 6; rent = 400; owner = 0; break;
-                case 27: price = 0; type = "hospital"; break;
+                case 27: price = 0; type = "go_hospital"; break;
                 case 28: price = 2210; type = "blocks"; color = 7; rent = 442; owner = 0; break;
                 case 29: price = 2300; type = "blocks"; color = 7; rent = 460; owner = 0; break;
-                case 30: price = 2500; type = "special"; rent = 500; owner = 0; break;
                 case 31: price = 2310; type = "blocks"; color = 7; rent = 462; owner = 0; break;
+                case 32: price = 2500; type = "special"; rent = 1000; owner = 0; break;
                 case 33: price = 1930; type = "blocks"; color = 8; rent = 386; owner = 0; break;
                 case 34: price = 1800; type = "blocks"; color = 8; rent = 360; owner = 0; break;
                 case 35: price = 1700; type = "blocks"; color = 8; rent = 340; owner = 0; break;
@@ -64,7 +64,7 @@ public class Block
     
     public void RecoverRent()
     {
-        rent = (int)((house + 1) * price * 0.2);
+            rent = (int)((house + 1) * price * 0.2);
     }
     public void DoubleRent()
     {       
@@ -82,18 +82,5 @@ public class Block
 }
 public class Blocks : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-        
-        
-    }
-   
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 }

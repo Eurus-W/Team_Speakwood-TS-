@@ -1,0 +1,335 @@
+{
+     
+  "chance":[
+    {
+        "id": "401",
+        "quality": "1",
+        "info": "虽然你什么都没有掉下去，但是河神还是给了你两个选择",
+        "aintro": "选金色的",
+        "aResultIntro": "获得700金币",
+        "aEffect": "获得700金币",
+        "bintro": "选银色的",
+        "bResultIntro": "",
+        "bEffect": "获得随机道具"
+    },
+    {
+        "id": "402",
+        "quality": "1",
+        "info": "你是商店的第99个客户，老板要送你一些东西",
+        "aintro": "恭敬不如从命",
+        "aResultIntro": "获得随机装备",
+        "aEffect": "获得随机装备",
+        "bintro": "恭敬不如从命",
+        "bResultIntro": "",
+        "bEffect": "获得随机道具"
+    },
+    {
+        "id": "403",
+        "quality": "1",
+        "info": "你在马路边看到一个皮夹",
+        "aintro": "我寻思也没人要",
+        "aResultIntro": "获得1200金币",
+        "aEffect": "获得1200金币",
+        "bintro": "交给警察叔叔",
+        "bResultIntro": "",
+        "bEffect": "力敏智体幸运+3"
+    },
+    {
+        "id": "404",
+        "quality": "1",
+        "info": "你在许久未穿的大衣里摸出了100块",
+        "aintro": "意外之喜",
+        "aResultIntro": "获得100金币",
+        "aEffect": "获得100金币",
+        "bintro": "意外之喜",
+        "bResultIntro": "",
+        "bEffect": "获得100金币"
+    },
+    {
+        "id": "405",
+        "quality": "1",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "你的力量提升了",
+        "aEffect": "力量+2",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "406",
+        "quality": "1",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "你的敏捷提升了",
+        "aEffect": "敏捷+2",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "407",
+        "quality": "1",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "你的智力提升了",
+        "aEffect": "智力+2",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "408",
+        "quality": "3",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "呕。。",
+        "aEffect": "力量-1",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "409",
+        "quality": "3",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "呕。。",
+        "aEffect": "敏捷-1",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "410",
+        "quality": "3",
+        "info": "有人在兜售奇怪的饮料",
+        "aintro": "可以试试（金币-100）",
+        "aResultIntro": "呕。。",
+        "aEffect": "智力-1",
+        "bintro": "算了算了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "411",
+        "quality": "1",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "武德恢复满，全属性+4",
+        "aEffect": "武德恢复满，全属性+4",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "412",
+        "quality": "1",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "力量+4",
+        "aEffect": "力量+4",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "413",
+        "quality": "1",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "敏捷+4",
+        "aEffect": "敏捷+4",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "414",
+        "quality": "1",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "智力+4",
+        "aEffect": "智力+4",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "415",
+        "quality": "2",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "然而饭店名不符实",
+        "aEffect": "体质+1",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "416",
+        "quality": "3",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "甚至还撞上了雷",
+        "aEffect": "力敏智-1",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "417",
+        "quality": "3",
+        "info": "遇上了一家知名饭店",
+        "aintro": "久违地吃一顿好的（金币-500）",
+        "aResultIntro": "你想投诉，被店家打了一顿",
+        "aEffect": "武德-2",
+        "bintro": "不了，省点钱",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "418",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "幸运+4",
+        "aEffect": "幸运+4",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "419",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "力量+3",
+        "aEffect": "力量+3",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "420",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "敏捷+3",
+        "aEffect": "敏捷+3",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "421",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "智力+3",
+        "aEffect": "智力+3",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "422",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "获得随机10回合以下装备",
+        "aEffect": "获得随机10回合以下装备",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "423",
+        "quality": "1",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "获得随机道具",
+        "aEffect": "获得随机道具",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "424",
+        "quality": "2",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "然而东西很一般",
+        "aEffect": "力量+1",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "425",
+        "quality": "2",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "然而东西很一般",
+        "aEffect": "敏捷+1",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "426",
+        "quality": "2",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "然而东西很一般",
+        "aEffect": "智力+1",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "427",
+        "quality": "3",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "一堆垃圾",
+        "aEffect": "##",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "428",
+        "quality": "3",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "一堆垃圾",
+        "aEffect": "##",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "429",
+        "quality": "3",
+        "info": "一个流浪汉神秘兮兮的要卖给你东西",
+        "aintro": "买，都可以买（金币-300）",
+        "aResultIntro": "一堆垃圾",
+        "aEffect": "##",
+        "bintro": "不了不了",
+        "bResultIntro": "无事发生",
+        "bEffect": "##"
+    },
+    {
+        "id": "430",
+        "quality": "1",
+        "info": "你阅读了一本好书",
+        "aintro": "我逐渐理解一切",
+        "aResultIntro": "",
+        "aEffect": "智力+4",
+        "bintro": "这书可以拿来卖钱",
+        "bResultIntro": "",
+        "bEffect": "金币+200"
+    }
+]
+}

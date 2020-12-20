@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class BlocksChange : MonoBehaviour
 {
     // Start is called before the first frame update
-    //初始化36个地块
     public Block[] all_blocks;
+    public bool canUpdate;
     void Start()
     {
-        
-        GameObject obj= GameObject.Find("GameUI/ShowBlock");
+        canUpdate = false;
+        GameObject obj= GameObject.Find("Cube");
         all_blocks = new Block[36];
         Block b;
         for (int i =0;i<=35;i++)
@@ -49,7 +49,7 @@ public class BlocksChange : MonoBehaviour
 
         
     }
-    public void ShowBlock(int pos, bool isshow)
+    public void ShowBlock(int pos)
     {
         Text blockname, ownername, price, housenumber, blockrent;
         BlocksChange bc = (BlocksChange)GetComponent(typeof(BlocksChange));
@@ -66,10 +66,26 @@ public class BlocksChange : MonoBehaviour
         blockrent.text = all_blocks[pos].rent.ToString();
 
     }
+    public void ChangeOwnerImage(int pos, int owner)
+    {
+        string panelpath = "Panel" + pos.ToString();
+        string imagepath = "Image" + pos.ToString();
+        switch (owner)
+        {
+
+            case 0: GameObject.Find(panelpath).GetComponent<Image>().color = new Color(255, 255, 255, 0); break;
+            case 1: GameObject.Find(panelpath).GetComponent<Image>().color = new Color(255, 0, 0, 255); break;
+            case 2: GameObject.Find(panelpath).GetComponent<Image>().color = new Color(255, 255, 0, 255); break;
+            case 3: GameObject.Find(panelpath).GetComponent<Image>().color = new Color(0, 0, 255, 255); break;
+            case 4: GameObject.Find(panelpath).GetComponent<Image>().color = new Color(0, 255, 0, 255); break;
+        }
+
+
+
+    }
     // Update is called once per frame
     void Update()
     {
-        //监听地块租金
         DoubleGroundRent(all_blocks, 1, 2, 3);
         DoubleGroundRent(all_blocks, 5, 7, 8);
         DoubleGroundRent(all_blocks, 10, 11, 13);
@@ -78,8 +94,19 @@ public class BlocksChange : MonoBehaviour
         DoubleGroundRent(all_blocks, 23, 25, 26);
         DoubleGroundRent(all_blocks, 28, 29, 31);
         DoubleGroundRent(all_blocks, 33, 34, 35);
-        all_blocks[14].RecoverRent();
-        all_blocks[30].RecoverRent();
+
+        
+
+        if (all_blocks[14].owner == all_blocks[30].owner && all_blocks[14].owner != 0)
+        {
+            all_blocks[14].rent = 2000;
+            all_blocks[30].rent = 2000;
+        }
+        else
+        {
+            all_blocks[14].rent = 1000;
+            all_blocks[30].rent = 2000;
+        }
         Dictionary<int, int> port=new Dictionary<int, int> ();
         port[all_blocks[4].owner] = 0;
         port[all_blocks[12].owner] = 0;
@@ -97,7 +124,28 @@ public class BlocksChange : MonoBehaviour
             if (all_blocks[22].owner == kvp.Key) { all_blocks[22].rent = 240 + (kvp.Value - 1) * 500; }
             if (all_blocks[30].owner == kvp.Key) { all_blocks[30].rent = 240 + (kvp.Value - 1) * 500; }
         }
-        ShowBlock(1, true);
+        for (int i = 1; i <= 35; i++)
+        {
+            
+            ChangeOwnerImage(i, all_blocks[i].owner);
+        }
+
+        int pos;
+        pos = GameObject.Find("Player").GetComponent<UIdemo>().players.playerlist[GameObject.Find("Player").GetComponent<UIdemo>().GameTurn].Position;
+        //缺：当前玩家的当前位置
+        if (!canUpdate)
+        {
+            return;
+        }
+
         
+
+        ShowBlock(pos);
+        if(all_blocks[pos].owner == 0)
+        {
+            return;
+        }
+        all_blocks[pos].ownername = GameObject.Find("Player").GetComponent<UIdemo>().players.playerlist[all_blocks[pos].owner].Name;
+        canUpdate = false;
     }
 }

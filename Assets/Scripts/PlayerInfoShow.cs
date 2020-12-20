@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerInfoShow : MonoBehaviour
 {
-    public GameObject HeroImage, PlayerName, Strength, Agility, Intelligence, Toughness, Luck, DiscribText;
+    public Transform minimap;
+    public GameObject image, PlayerName, Strength, Agility, Intelligence, Toughness, Luck, DiscribText;
 
     private Heroes data;
 
@@ -44,7 +45,11 @@ public class PlayerInfoShow : MonoBehaviour
         }
         data = GameObject.Find("HeroData").GetComponent<ReadData>().LoadedData;
 
-        GetComponent<Slider>().value = player.Wood;
+        minimap.position = player.Model.transform.position + new Vector3(0, 20, 0);
+        Sprite s = Resources.Load("player" + GameObject.Find("Player").GetComponent<UIdemo>().GameTurn,typeof(Sprite)) as Sprite;
+        image.GetComponent<Image>().sprite = s;
+
+        GameObject.Find("WoodSlider").GetComponent<Slider>().value = player.Wood;
         PlayerName.GetComponent<Text>().text = data.heroes[player.Key].Name;
         Strength.GetComponent<Text>().text = player.Strength.ToString();
         Agility.GetComponent<Text>().text = player.Agility.ToString();
